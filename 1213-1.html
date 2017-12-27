@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300,600');
+		@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+
+		*{
+			font-family: "Josefin Sans","Noto Sans TC";
+
+		}
+		body,h1,h2,h3,h4,h5,h6,ul,li,p{
+			margin: 0;
+			padding: 0;
+		}
+
+		.clearfix::after{
+			content: "";
+			display: block;
+			clear: both;
+		}
+	
+		a{
+			/*display: block;*/
+			text-decoration: none;
+			color: #000;
+		}
+
+		img{
+			width: 100%;
+		}
+
+		.fixed-width{
+			width: 1024px; 
+			margin: auto;
+		}
+
+		.full-width{
+			width: 100%;
+		}
+
+		.col-2{
+			width: calc(100% / 2 - 30px); /* + - * / 的前後空格一定要有 */
+			float: left;
+			margin: 0 15px;
+		}
+
+		.col-3{
+			width: calc(100% / 3 - 30px);
+			float: left;
+			margin: 0 15px;
+		}
+
+		.col-4{
+			width: calc(100% / 4 - 30px);
+			float: left;
+			margin: 0 15px;
+		}
+
+		.wraper{
+			width: 100%;
+			height:100%;
+			background-image: url(112.jpg);
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			background-attachment: fixed;
+			/* padding: 335px 0; */
+			//-webkit-background-size: cover;
+			
+		}
+		
+		nav{
+			/*width: 100%;*/
+			background-color: transparent;
+			position: fixed;
+			z-index: 9;			 
+		}		
+
+		nav .logo{
+			font-size: 22px;
+			color:red;
+			height: 40px;
+			line-height: 40px;
+			float: left;/* float 造成背景顏色跑掉*/
+			border: 3px solid blue;
+			margin: 12px 0;
+			padding: 0 5px;
+		}
+
+		nav ul{
+				float: right;			
+		}
+
+		nav li{
+			list-style-type: none;
+			float: left;
+		}
+
+		nav a{
+				display: block;			
+				height: 70px;
+				line-height: 70px;
+				color: red;			 
+				padding-left: 15px;
+				text-align: center;
+				/*transition: all .3s,transform 0.2s;*/
+				transition: transform 2s,color 2s 1s ease-out ;
+				/*transition-timing-function: cubic-bezier(0, 1.13, 0.99,-0.17);
+				 1s為delay 時間 ease-in ease-out ease-in-out linear; */
+		}
+
+		nav a:hover{
+			color:#00ff00;
+			transform: rotate(3600deg);					 
+		}
+		
+		nav .orange{
+			color:#fbee04;
+		}
+
+		header{
+			
+			 padding-top: 100px;
+			padding-bottom: 450px;
+
+		}
+
+		header .title{
+			/*margin: auto;*/
+			text-align: center;
+		}
+
+		header .title h1{
+			font-size: 36px;
+		}
+
+		header .title h3{
+			font-size: 24px;
+			font-style: italic;
+			color: #fff;
+
+		}
+
+		header .title hr{
+			width: 270px;
+			height: 1px;
+			background-color: #fff;
+		}
+
+		header .title a, header .right a{
+			display: block;
+			width: 86px;
+			height: 25px;
+			text-align: center;
+			line-height: 25px;
+			background-color: rgba(255,255,255,0.4);/* a是透明度,0~1之間 0是全透明 */
+			padding: 10px 20px;
+			margin: auto;
+			margin-top: 50px;
+			border-radius: 5px; 
+			transition: all 0.3s;
+		}
+
+		header .title a:hover{
+			background-color: #c15d1f;
+		}
+
+
+		header .menu{
+			color: blue;
+			text-align: center;
+			margin-top: 50px;
+			 
+			bottom: 40px;
+		}
+
+		header .icon{
+			border-radius: 50%;
+			border: 1px solid blue;
+			padding: 10px;
+			margin-bottom: 15px;
+		}
+					
+		header .menu .col-3{
+			transition: all 0.3s;
+			padding: 15px;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box; 			
+		}
+
+		header .menu .col-3:hover{
+			background-color: rgba(0,0,0,0.5);
+		}
+
+		header .orangeblock{
+			background-color: #c15d1f;
+			height: 200px;
+			line-height: 200px;
+		}
+
+		header .orangeblock .left{
+			float: left;
+			color: #fff;
+			font-size: 20px;
+			width: 80%;
+			text-align: center;
+		}
+
+		header .orangeblock .right{
+			float: right;						
+		}
+
+		header .orangeblock .right a{
+			font-size:14px;  
+			margin-top: 80px;						
+		}
+
+		.what {
+			text-align: center;
+		}
+
+		.what h2{
+			
+			color: yellow;
+			margin:30px 0 15px 0 ;
+			font-size: 36px;
+		}
+
+		.what h4{
+
+			color: yellow;
+			margin: 15px 0 60px 0;
+
+		}
+
+		.what .col-3 {
+			background-color: #fff;
+			padding: 10px;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			margin-top: 15px ;
+			margin-bottom: 15px;
+			transition: all 0.3s;
+
+		} 
+
+		.what .col-3:hover .sub-icon{
+			background-color: #fa0;
+			color : blue;
+			border: 1px solid red;
+		}
+
+		.what .col-3 p{
+			margin: 5px 0;
+			font-size: 12px;
+			color: rgba(0,0,0,0.7);
+		}
+
+		.what .col-3 h5{
+			font-size: 5px;
+			color: rgba(0,0,0,0.7);
+		}
+
+		.what .col-3 .sub-icon{
+			width: 30px;
+			height: 30px;
+			line-height: 30px;
+			border-radius: 50%;
+			border: 1px solid blue;
+			padding: 10px;
+			margin-bottom: 15px;
+			background-color: #BBC;
+			color:#fa0;
+			//font-size: 20px; 
+		}
+		 
+		.about{
+			background-color: #fff;
+			padding: 50px 0;
+		}
+		
+
+
+
+
+	</style>
+</head>
+
+<body>
+	<div class="wraper">
+	<nav class="full-width clearfix">
+		<div class="fixed-width">
+			<div class="logo">FEATURE<span class="orange">D</span></div>
+			<ul>
+				<li><a href="">Home</a></li>
+				<li><a href="">Services</a></li>
+				<li><a href="">About us</a></li>
+				<li><a href="">Team</a></li>
+				<li><a href="">Store</a></li>
+				<li><a href="">Testimonial</a></li>
+				<li><a href="">News</a></li>				
+				<!--<li><a href=""></a>Pages</li>-->
+			</ul>
+		</div>
+	</nav>
+	<!-- header.full-width(tab) -->
+	<header class="header full-width">
+		<div class="title">
+			<h1>Beautiful wordPress Business Theme</h1><hr>
+			<h3>Cleanly coded with User Friendly Interface</h3>
+			<a href="">Buy Now!</a>
+		</div>
+		<div class="menu full-width clearfix">
+			<div class="col-3">
+				<div class="icon fa fa-star-o fa-2x"></div>
+					<h4>Parallax Effect</h4>
+					<p>Lorem Ipsum is simply dummy text</p>	
+			</div>
+			<div class="col-3">
+				<div class="icon fa fa-cubes fa-2x"></div>
+					<h4>Unlimited options</h4>
+					<p>Lorem Ipsum is simply dummy text</p>	
+			</div>
+			<div class="col-3">
+				<div class="icon fa fa-cogs fa-2x"></div>
+					<h4>Responsive design</h4>
+					<p>Lorem Ipsum is simply dummy text</p>	
+			</div>
+		</div>
+		<div class="orangeblock full-width">
+			<div class="fixed-width">
+				<div class="left">Easy to step up, just take a few steps and your website is ready within a minute				
+				</div>
+				<div class="right"><a href="">Call To Action</a>				
+				</div>			
+			</div>
+		</div>
+
+		<div class="what">
+			<div class="fixed-width">
+				<h2>What We Do</h2>
+				<h4>This Is SubTitle</h4>
+				<div class="col-3">
+					<div class="sub-icon fa fa-glass fa-2x"></div>
+					<h5 >Frequently Asked Question</h5>
+					<p>Aliquam varius ligula tempor, vehicula mauris sed, efficitur dui. Aenean euismod felis quis purus varius, nec laoreet leo mollis. Curabitur eget porta velit, non convallis velit. Aenean tempor rutrum ante at vulputate</p>
+				</div>
+				<div class="col-3">
+					<div class="sub-icon fa fa-flag fa-2x"></div>
+					<h5 >Free Training and Courses</h5>
+					<p>Aliquam varius ligula tempor, vehicula mauris sed, efficitur dui. Aenean euismod felis quis purus varius, nec laoreet leo mollis. Curabitur eget porta velit, non convallis velit. Aenean tempor rutrum ante at vulputate</p>
+				</div>
+				<div class="col-3">
+					<div class="sub-icon fa fa-gift fa-2x"></div>
+					<h5 >Clean Code</h5>
+					<p class="p">Aliquam varius ligula tempor, vehicula mauris sed, efficitur dui. Aenean euismod felis quis purus varius, nec laoreet leo mollis. Curabitur eget porta velit, non convallis velit. Aenean tempor rutrum ante at vulputate</p>
+				</div>
+				<div class="col-3">
+					<div class="sub-icon fa fa-gavel fa-2x"></div>
+					<h5 >Only Good In PayPal</h5>
+					<p class="p">Aliquam varius ligula tempor, vehicula mauris sed, efficitur dui. Aenean euismod felis quis purus varius, nec laoreet leo mollis. Curabitur eget porta velit, non convallis velit. Aenean tempor rutrum ante at vulputate</p>
+				</div>
+				<div class="col-3">
+					<div class="sub-icon fa fa-hand-rock-o fa-2x"></div>
+					<h5 >Production Graph</h5>
+					<p class="p">Aliquam varius ligula tempor, vehicula mauris sed, efficitur dui. Aenean euismod felis quis purus varius, nec laoreet leo mollis. Curabitur eget porta velit, non convallis velit. Aenean tempor rutrum ante at vulputate</p>
+				</div>
+				<div class="col-3">
+					<div class="sub-icon fa fa-handshake-o fa-2x"></div>
+					<h5 >Marketing Strategy</h5>
+					<p class="p">Aliquam varius ligula tempor, vehicula mauris sed, efficitur dui. Aenean euismod felis quis purus varius, nec laoreet leo mollis. Curabitur eget porta velit, non convallis velit. Aenean tempor rutrum ante at vulputate</p>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="about clearfix">
+		<div class="col-2"><br>
+			<h3>About Us</h3><br>
+			Aliquam varius ligula tempor, vehicula mauris sed, efficitur dui. Aenean euismod felis quis purus varius, nec laoreet leo mollis. Curabitur eget porta velit, non convallis velit. Aenean tempor rutrum ante at vulputate
+
+		</div>
+		<div class="col-2">
+			<img src="123.jpg">
+		</div>
+	</div>
+</body>
+</html>
